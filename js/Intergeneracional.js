@@ -38,6 +38,7 @@ function getColor() {
     }
     return colores[contador]
 }
+
 function tamañoPastel(t, c) {
     var currentZoom
     if (t === 1) {
@@ -60,7 +61,10 @@ function preguntar(capa) {
             if (objetos[i].properties.LENGUA_L1 === capa) {
                 for (e in objetos[i].properties) {
                     if (e.slice(-2) === preguntas[len] && objetos[i].properties[e] > 0) {
-                        pastel.push({ num: parseInt(objetos[i].properties[e]), color: coloresCondicion(e) });
+                        pastel.push({
+                            num: parseInt(objetos[i].properties[e]),
+                            color: coloresCondicion(e)
+                        });
                     }
                 }
             }
@@ -76,9 +80,7 @@ function preguntar(capa) {
 
         }
     }
-    layerGroups = {
-
-    }
+    layerGroups = {}
     for (pregunta in pastelesPrueba) {
         layerGroups[pregunta] = L.layerGroup();
         for (e in pastelesPrueba[pregunta]) {
@@ -87,8 +89,7 @@ function preguntar(capa) {
         }
     }
     lengs = {
-        "Hablantes": {
-        }
+        "Hablantes": {}
     }
     for (var j = 0; j < lenguasLayer.length; j++) {
         lengs["Hablantes"][lenguasLayer[j]] = layerGroups[preguntas[j]]
@@ -108,7 +109,7 @@ function preguntar(capa) {
     if (legend) {
         legend.remove();
     }
-    legend = L.control({ position: 'topright' });
+    legend = L.control({position: 'topright'});
     legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'info legend');
         div.innerHTML = '<span class="leaflet-control-layers-group-name">Lenguas en uso</span><table style="margin: auto"><td id="LN1">Seleccione una lengua</td><td><div class="circulo verde"></div></td></tr><tr><td>Bilingüe</td><td><div class="circulo amarillo"></div></td></tr><tr><td>Castellano</td><td><div class="circulo rojo"></div></td></tr><tr><td>Multilingüe</td><td><div class="circulo celeste-leyenda"></div></td></tr><tr><td>Otra</td><td><div class="circulo cafe-leyenda"></div></td></tr><tr><td>No Aplica</td><td><div class="circulo plomo-leyenda"></div></td></tr><tr><td>No Responde</td><td><div class="circulo blanco"></div></td></tr></table>';
@@ -119,6 +120,7 @@ function preguntar(capa) {
 
 
 }
+
 function dibujarControlLenguas(overlay) {
     baseLayers = {};
     contador = 0;
@@ -147,7 +149,7 @@ function dibujarControlLenguas(overlay) {
                 }
             }
         });
-        baseLayers[overlay[i]].setStyle({ 'className': 'parroquias' });
+        baseLayers[overlay[i]].setStyle({'className': 'parroquias'});
     }
 
 
@@ -158,11 +160,10 @@ function dibujarControlLenguas(overlay) {
     $(".leaflet-control-layers-base").before("<span class='leaflet-control-layers-group-name'>Lenguas</span>");
 
 
-
 }
 
 
-var dataEncuesta = $.getJSON("https://oralidadmodernidad.org/wp-content/uploads/geoMaps/geojson_files/encuesta.geojson", function (response) {
+var dataEncuesta = $.getJSON("https://raw.githubusercontent.com/cristhianviera1/GeoLinguistica-O.M/dev/geojson_files/encuesta.geojson", function (response) {
     var dataGS = L.geoJson(response, {
         onEachFeature: function (feature) {
             objetos.push(feature);
@@ -171,11 +172,10 @@ var dataEncuesta = $.getJSON("https://oralidadmodernidad.org/wp-content/uploads/
             }
         },
         style: function (layer) {
-            return { fillOpacity: 0.8, color: '#555' }
+            return {fillOpacity: 0.8, color: '#555'}
         }
     });
     lenguasPrincipales.sort();
-
     dibujarControlLenguas(lenguasPrincipales);
     $(".leaflet-control-layers-toggle").append('<span>Lenguas</span><i class="fas fa-angle-down"></i>');
     var divLenguaControl = lenguaControl.getContainer();
@@ -185,15 +185,19 @@ var dataEncuesta = $.getJSON("https://oralidadmodernidad.org/wp-content/uploads/
     $(divLenguaControl).mouseout(function () {
         lenguaControl.collapse();
     });
-
 })
 
 var map = L.map('map', {
     minZoom: 6,
     center: [-0.657396, -83.800946],
     zoom: 6,
-    maxZoom: 18
+    maxZoom: 18,
+    fullscreenControl: true,
+    fullscreenControlOptions: {
+        position: 'topleft'
+    }
 });
+
 const MaxBoxTiles = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2FicmllbHZpZXJhIiwiYSI6ImNramJuaW80eDduMWQydnBkdDc5Mm11bTMifQ.o-9-A2sAE9fOU_3tvsYqsg', {
     attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     tileSize: 512,
@@ -201,12 +205,10 @@ const MaxBoxTiles = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets
 });
 MaxBoxTiles.addTo(map);
 
-map.addControl(new L.Control.Fullscreen());
-
-
 
 L.control.scale().addTo(map);
 var pastelPequeño = false;
+
 function zoomPasteles() {
     if (!primerZoom) {
         if (map.getZoom() > 9) {
@@ -247,7 +249,9 @@ function zoomPasteles() {
     }
     primerZoom = false
 }
+
 var comunidades = true;
+
 function ctrl() {
     for (a in lenguasPrincipales) {
         if (map.hasLayer(baseLayers[lenguasPrincipales[a]])) {
@@ -268,6 +272,7 @@ function ctrl() {
         comunidades = true;
     }
 }
+
 var ourCustomControl = L.Control.extend({
     options: {
         position: 'bottomright'
@@ -289,7 +294,9 @@ var ourCustomControl = L.Control.extend({
 
         container.onclick = function () {
             map.doubleClickZoom.disable();
-            setTimeout(function () { map.doubleClickZoom.enable(); }, 1000);
+            setTimeout(function () {
+                map.doubleClickZoom.enable();
+            }, 1000);
             if (eye == true) {
                 $('#eyeIcon').removeClass('fa-eye').addClass('fa-eye-slash');
                 eye = false
@@ -334,7 +341,7 @@ map.on('baselayerchange', function (e) {
     lenguaControl.collapse();
     preguntar(e.name);
     $("#LN1").text(e.name);
-    $(".leaflet-control-layers").css({ 'border-bottom': 'black 1px solid' });
+    $(".leaflet-control-layers").css({'border-bottom': 'black 1px solid'});
     map.addLayer(layerGroups[54]);
     generaciones = true
 });

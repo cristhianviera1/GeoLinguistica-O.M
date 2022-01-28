@@ -162,7 +162,7 @@ function dibujarControlLenguas(overlay) {
 }
 
 
-var dataEncuesta = $.getJSON("https://oralidadmodernidad.org/wp-content/uploads/geoMaps/geojson_files/encuesta.geojson", function (response) {
+var dataEncuesta = $.getJSON("https://raw.githubusercontent.com/cristhianviera1/GeoLinguistica-O.M/dev/geojson_files/encuesta.geojson", function (response) {
     var dataGS = L.geoJson(response, {
         onEachFeature: function (feature) {
             objetos.push(feature);
@@ -192,8 +192,13 @@ var map = L.map('map', {
     minZoom: 6,
     center: [-0.657396, -83.800946],
     zoom: 6,
-    maxZoom: 18
+    maxZoom: 18,
+    fullscreenControl: true,
+    fullscreenControlOptions: {
+        position: 'topleft'
+    }
 });
+
 
 
 const MaxBoxTiles = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2FicmllbHZpZXJhIiwiYSI6ImNramJuaW80eDduMWQydnBkdDc5Mm11bTMifQ.o-9-A2sAE9fOU_3tvsYqsg', {
