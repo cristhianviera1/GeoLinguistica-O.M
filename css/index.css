@@ -1,0 +1,262 @@
+/*html body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}*/
+body {
+	padding: 0;
+	margin: 0;
+}
+i{
+    float: right;
+}
+html, body, #map {
+	height: 100%;
+	width: 100vw;
+}
+/*#map {
+    width: 100%;
+}*/
+label{
+    margin: 0px 1rem;
+    white-space: nowrap;
+}
+table{
+    margin:0px auto;
+}
+.leaflet-control-layers-toggle{
+    text-align:center;
+}
+.leaflet-control-layers-group-label{
+    text-align:center;
+}
+.leaflet-control-layers-group-name {
+	text-align: center;
+	display: block;
+}
+#leyendaPopup{
+    font-weight: bold;
+}
+.leaflet-control-layers-expanded{
+    background: #ffffff8f;
+}
+.leaflet-touch .leaflet-control-layers{
+    background: #ffffff8f;
+}
+.info{
+    background: #ffffff8f!important;
+    padding: 0px 10px!important;
+    font-family: Montserrat!important;
+    border: 2px solid rgba(0,0,0,0.2);
+}
+.leaflet-interactive{
+    cursor: grab;
+}
+.interactivo{
+    cursor: pointer;
+}
+.leaflet-control-layers-toggle{
+    background-image: none;
+    color:#000;
+    height: auto;
+    width: auto;
+}
+.bolder{
+    font-weight: bolder
+}
+#LN1{
+    font-weight: bold;
+}
+.leaflet-custom-control{
+    cursor: pointer;
+}
+td{
+    text-align: right;
+  }
+#sidebar{
+    width: auto;
+    position: absolute;
+    right:0px;
+    padding:0px 0px
+}
+.absoluto{
+    width: 100px;
+    position: absolute;
+    z-index: 999999999;
+    height: 100px;
+    display: block;
+}
+@media screen and (max-width: 760px) {
+    #sidebar{
+    display:none;
+    }
+    #map{
+        width: 100%
+    }
+    #botonMostrar {
+        display: block;
+        position: absolute;
+        z-index: 99999;
+        right: 3%;
+        top:3%;
+    }
+}
+@media screen and (min-width: 760px) {
+    #botonMostrar{
+        display:none;
+    }
+}
+span .overLayText{
+    font-size: 131%;
+}
+td{
+    font-size: 90%;
+}
+.leaflet-control-layers-expanded{
+    background: #b19736,
+}
+.leaflet-pie-label {
+    font-weight: bold
+}
+.leaflet-control-layers{
+    width: 100%;
+    padding: 0%;
+    box-shadow: 0 0px;
+    border-radius: 0%;
+}
+.fa-angle-down{
+    float: right;
+    padding: 3%;
+}
+.leaflet-control-layers-group-name{
+    font-weight: bold;
+}
+.leyenda{
+    margin-top :1%; 
+    margin-left: 4%; 
+    background: #fff;
+    opacity: 0.9;
+}
+
+.leaflet-pie-label{
+    font-size: 155%;
+}
+.col-md-10 {
+    padding: 0px 0px;
+    margin: 0px 0px;
+}
+.col-md-12 {
+    padding: 0px 0px;
+    margin: 0px 0px;
+}
+.col-md-2 {
+    padding: 0px 1%;
+}
+
+.row {
+    padding: 0px 0px;
+    margin: 0px 0px;
+}
+
+.leaflet-control-layers-expanded {
+    width: 100%;
+}
+
+.hide {
+    visibility: hidden;
+    display:none;
+}
+.leaflet-touch .leaflet-control-layers-toggle {
+    width: auto;
+    height: auto;
+}
+.leaflet-container a {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+/*
+*
+*/
+.circulo-rosa {
+    width: 30px;
+    border: black;
+    height: 30px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #f67ab6;
+    font-size: 160%;
+    color: #f67ab6;
+}
+.circulo-celeste {
+    width: 30px;
+    height: 30px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #6677ce;
+    font-size: 160%;
+    color: #6677ce;
+}
+.circulo-rojo {
+    width: 30px;
+    height: 30px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #742601;
+    font-size: 160%;
+    color: #742601;
+}
+.circulo-amarillo {
+    width: 30px;
+    height: 30px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #ffaa01;
+    font-size: 160%;
+    color: #ffaa01;
+}
+.circulo-cyan {
+    width: 30px;
+    height: 30px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #73fedf;
+    font-size: 160%;
+    color: #73fedf;
+}
+.circulo-blanco {
+    width: 30px;
+    height: 30px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 160%;
+    color: #fff;
+}
+.circulo-oro {
+    width: 30px;
+    height: 30px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #a9a800;
+    font-size: 160%;
+    color: #a9a800;
+}
+.circulo-cafe {
+    width: 30px;
+    height: 30px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #821C00;
+    font-size: 160%;
+    color: #821C00;
+}

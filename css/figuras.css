@@ -1,0 +1,53 @@
+.circulo {
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.blanco{
+    background: #fff;
+}
+.morado{
+    background: #663399;
+}
+.celeste-leyenda{
+    background: #65A7FD;
+}
+.cafe-leyenda{
+    background: #821C00;
+}
+.plomo-leyenda{
+    background: #373737;
+}
+.rosa{
+    background: #F67AB6;
+}
+.rojo{
+    background: #ec4040;
+}
+.verde{
+    background: #5cb85c;
+}
+.celeste {
+    background: #6677ce;
+}
+.cafe {
+    background: #742601;
+}
+.amarillo {
+    background: #ffbb00;
+}
+.cyan {
+    background: #73fedf;
+}
+.blanco {
+    background: #fff;
+    border: 1px solid rgb(0, 0, 0);
+}
+.oro {
+    background: #ddaa01;
+}
+.verde-edad{
+    background: #A9A800
+}
