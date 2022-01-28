@@ -208,10 +208,6 @@ const MaxBoxTiles = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets
 });
 MaxBoxTiles.addTo(map);
 
-map.addControl(new L.Control.Fullscreen());
-
-
-
 L.control.scale().addTo(map);
 
 
